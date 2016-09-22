@@ -1,0 +1,86 @@
+.projects-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    width: 45%;
+
+    border: 1px solid black;
+
+    margin-bottom: 20px;
+}
+
+.project-card__header,
+.project-card__footer {
+    font-size: 80%;
+}
+
+.project-card__header,
+.project-card__footer,
+.project-card__body {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.project-card__header {
+    text-transform: uppercase;
+    font-weight: bold;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    background-color: pink;
+    color: white;
+
+    border-bottom: 2px solid #ccc;
+}
+
+.project-card__footer {
+    color: #ccc;
+
+    padding-bottom: 5px;
+}
+
+.project-card__body {
+    display: flex;
+    justify-content: space-around;
+}
+
+.project-card__chart {
+    flex: 1;
+
+    text-align: center;
+
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.bar-chart {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+
+    height: 150px;
+
+    padding-bottom: 10px;
+}
+
+
+.bar {
+    background-color: #355ff0;
+    color: white;
+    text-align: center;
+
+    flex: 1;
+    margin-left: 1px;
+}
+
+.bar__text {
+    transform: rotate(90deg);
+    display: block;
+
+    top: 35px;
+    position: relative;
+}

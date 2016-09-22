@@ -1,0 +1,22 @@
+{
+  "name": "project-fit",
+  "version": "1.0.0",
+  "description": "Uma maneira de descobrir quais são as skills/capabilities que os membros de um determinado projeto ou conta possuem e em qual nível.",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel --presets react public/react --out-dir public/build/react",
+    "watch": "babel --presets react public/react --out-dir public/build/react --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-react": "^6.11.1",
+    "bootstrap": "^3.3.6",
+    "d3": "^4.1.0",
+    "jquery": "^1.9.1",
+    "react": "^15.2.0",
+    "react-dom": "^15.2.0",
+    "rumble-charts": "^1.0.13"
+  }
+}
