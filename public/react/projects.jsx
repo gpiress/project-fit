@@ -13,16 +13,21 @@ var Projects = React.createClass({
                     vacancy: 0,
                     skills: {
                         tech: [
-                            { name: 'AngularJS', stars: 3, freq: 6 },
-                            { name: 'Java', stars: 4, freq: 4 },
-                            { name: 'Unit Testing', stars: 5, freq: 6 }
+                            { name: 'AngularJS', stars: 3, freq: 6, fullMark: 5 },
+                            { name: 'Java', stars: 4, freq: 4, fullMark: 5 },
+                            { name: 'JavaScript', stars: 4, freq: 8, fullMark: 5 },
+                            { name: 'C#', stars: 1, freq: 8, fullMark: 5 },
+                            { name: 'Unit Testing', stars: 5, freq: 6, fullMark: 5 }
                         ],
                         business: [
-                            { name: 'Business Architecture', stars: 3, freq: 2 },
-                            { name: 'Analytics', stars: 4, freq: 3 }
+                            { name: 'Business Architecture', stars: 3, freq: 2, fullMark: 5 },
+                            { name: 'Analytics', stars: 4, freq: 3, fullMark: 5 },
+                            { name: 'Visual Design', stars: 5, freq: 3, fullMark: 5 },
+                            { name: 'Storytelling', stars: 3, freq: 3, fullMark: 5 },
+                            { name: 'Content Strategy', stars: 5, freq: 3, fullMark: 5 }
                         ],
                         language: [
-                            { name: 'Portuguese', stars: 5, freq: 6 },
+                            { name: 'Portuguese', stars: 5, freq: 6, fullMark: 5 },
                             { name: 'English', stars: 4.2, freq: 6 },
                             { name: 'Spanish', stars: 2.5, freq: 4 }
                         ]
@@ -34,18 +39,23 @@ var Projects = React.createClass({
                     vacancy: 1,
                     skills: {
                         tech: [
-                            { name: 'AngularJS', stars: 3, freq: 4 },
-                            { name: 'Java', stars: 4, freq: 4 },
-                            { name: 'Unit Testing', stars: 5, freq: 3 }
+                            { name: 'AngularJS', stars: 3, freq: 4, fullMark: 5 },
+                            { name: 'Java', stars: 2, freq: 4, fullMark: 5 },
+                            { name: 'JavaScript', stars: 3, freq: 8, fullMark: 5 },
+                            { name: 'C#', stars: 5, freq: 8, fullMark: 5 },
+                            { name: 'Unit Testing', stars: 5, freq: 3, fullMark: 5 }
                         ],
                         business: [
-                            { name: 'Business Architecture', stars: 4, freq: 4 },
-                            { name: 'Analytics', stars: 4, freq: 3 }
+                            { name: 'Business Architecture', stars: 4, freq: 4, fullMark: 5 },
+                            { name: 'Analytics', stars: 4, freq: 3, fullMark: 5 },
+                            { name: 'Visual Design', stars: 2, freq: 3, fullMark: 5 },
+                            { name: 'Storytelling', stars: 5, freq: 3, fullMark: 5 },
+                            { name: 'Content Strategy', stars: 4, freq: 3, fullMark: 5 }
                         ],
                         language: [
-                            { name: 'Portuguese', stars: 5, freq: 4 },
+                            { name: 'Portuguese', stars: 5, freq: 4, fullMark: 5 },
                             { name: 'English', stars: 4.2, freq: 4 },
-                            { name: 'Spanish', stars: 4, freq: 3 }
+                            { name: 'Spanish', stars: 4, freq: 3, fullMark: 5 }
                         ]
                     }
                 },
@@ -55,16 +65,21 @@ var Projects = React.createClass({
                     vacancy: 0,
                     skills: {
                         tech: [
-                            { name: 'AngularJS', stars: 3, freq: 6 },
-                            { name: 'Java', stars: 4, freq: 8 },
+                            { name: 'AngularJS', stars: 3, freq: 6, fullMark: 5 },
+                            { name: 'Java', stars: 3, freq: 8, fullMark: 5 },
+                            { name: 'JavaScript', stars: 5, freq: 8, fullMark: 5 },
+                            { name: 'C#', stars: 3, freq: 8, fullMark: 5 },
                             { name: 'Unit Testing', stars: 4.5, freq: 8 }
                         ],
                         business: [
-                            { name: 'Business Architecture', stars: 3, freq: 2 },
-                            { name: 'Analytics', stars: 4, freq: 3 }
+                            { name: 'Business Architecture', stars: 3, freq: 2, fullMark: 5 },
+                            { name: 'Analytics', stars: 4, freq: 3, fullMark: 5 },
+                            { name: 'Visual Design', stars: 2, freq: 3, fullMark: 5 },
+                            { name: 'Storytelling', stars: 1, freq: 3, fullMark: 5 },
+                            { name: 'Content Strategy', stars: 3, freq: 3, fullMark: 5 }
                         ],
                         language: [
-                            { name: 'Portuguese', stars: 5, freq: 8 },
+                            { name: 'Portuguese', stars: 5, freq: 8, fullMark: 5 },
                             { name: 'English', stars: 3.8, freq: 8 },
                             { name: 'Spanish', stars: 3, freq: 5 }
                         ]

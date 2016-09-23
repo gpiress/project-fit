@@ -11,25 +11,67 @@ import {
   DropShadow, Gradient, helpers
 } from 'rumble-charts';
 
-var SkillChart = React.createClass({
-    render: function() {
-        var barsHtml = this.props.data.map(function(skill) {
-            var height = skill.stars * 20;
-            var name = skill.name;
+import {
+    Radar, RadarChart,
+    PolarGrid, PolarAngleAxis, PolarRadiusAxis,
+    RadialBarChart, RadialBar,
+    Legend, Tooltip,
+    ResponsiveContainer
+} from 'Recharts';
 
-            return (<div className="bar"
-                         style={{ 'height': height + '%' }}
-                         key={name}>
-                         <span className="bar__text">{ name }</span>
-                    </div>);
-        });
+var SkillRadar = React.createClass({
+    colors: {
+        'technical': '#8884d8',
+        'business': '#82ca9d',
+        'languages': '#d0ed57'
+    },
+    render: function() {
+        const data = this.props.data;
+        const skillSet = this.props.name;
+        const color = this.colors[skillSet];
 
         return (
-            <div className={ "project-card__chart " + this.props.name }>
-                <h4 className="project-card__skillSetName">{ this.props.name }</h4>
+            <div className={ "project-card__chart " + skillSet }>
+                <h4 className="project-card__skillSetName">{ skillSet }</h4>
 
-                <div className="bar-chart">
-                    { barsHtml }
+                <div className="chart-container">
+                    <ResponsiveContainer>
+                    	<RadarChart data={data}>
+                            <Radar name={skillSet} dataKey="stars" stroke={color} fill={color} fillOpacity={0.6}/>
+                            <PolarGrid />
+                            <PolarAngleAxis dataKey="name" />
+                            <PolarRadiusAxis axisLine={false} domain={[0, 5]}/>
+                            <Tooltip />
+                        </RadarChart>
+                    </ResponsiveContainer>
+                </div>
+            </div>
+        );
+    }
+});
+
+var SkillRainbow = React.createClass({
+    render: function() {
+        const data = this.props.data;
+        const skillSet = this.props.name;
+
+        const style = {
+          	top: 0,
+          	left: 350,
+          	lineHeight: '24px'
+        };
+
+        return (
+            <div className={ "project-card__chart " + skillSet }>
+                <h4 className="project-card__skillSetName">{ skillSet }</h4>
+
+                <div className="chart-container">
+                    <ResponsiveContainer>
+                        <RadialBarChart innerRadius={20} outerRadius={140} barSize={10} data={data}>
+                            <RadialBar minAngle={15} label background clockWise={true} dataKey="stars"/>
+                            <Legend iconSize={10} width={120} height={140} layout='vertical' verticalAlign='middle' wrapperStyle={style}/>
+                        </RadialBarChart>
+                    </ResponsiveContainer>
                 </div>
             </div>
         );
@@ -71,11 +113,11 @@ var ProjectCard = React.createClass({
                 </div>
 
                 <div className="project-card__body">
-                    <SkillChart name="technical" data={this.props.skills.tech} />
+                    <SkillRadar name="technical" data={this.props.skills.tech} />
 
-                    <SkillChart name="business" data={this.props.skills.business} />
+                    <SkillRadar name="business" data={this.props.skills.business} />
 
-                    <SkillChart name="languages" data={this.props.skills.language} />
+                    <SkillRadar name="languages" data={this.props.skills.language} />
                 </div>
 
                 { footerHtml }

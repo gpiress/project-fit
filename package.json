@@ -4,8 +4,7 @@
   "description": "Uma maneira de descobrir quais são as skills/capabilities que os membros de um determinado projeto ou conta possuem e em qual nível.",
   "main": "index.js",
   "scripts": {
-    "build": "babel --presets react public/react --out-dir public/build/react",
-    "watch": "babel --presets react public/react --out-dir public/build/react --watch",
+    "build": "webpack --progress --profile --colors --display-error-details",
     "webpack": "webpack-dev-server --progress --colors --port 8090",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,7 +17,7 @@
     "babel-preset-react": "^6.11.1",
     "bootstrap": "^3.3.6",
     "jquery": "^1.9.1",
-    "react": "^15.2.0",
+    "react": "^15.3.2",
     "react-dom": "^15.2.0",
     "rumble-charts": "^1.0.13"
   },
