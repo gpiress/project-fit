@@ -1,7 +1,7 @@
 {
   "name": "project-fit",
   "version": "1.0.0",
-  "description": "Uma maneira de descobrir quais são as skills/capabilities que os membros de um determinado projeto ou conta possuem e em qual nível.",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "build": "webpack --progress --profile --colors --display-error-details",
