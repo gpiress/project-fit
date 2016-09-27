@@ -14,8 +14,17 @@ var SkillRadar = React.createClass({
         'business': '#82ca9d',
         'languages': '#d0ed57'
     },
+    prepareData: function(data) {
+        var preparedData = [].concat(data);
+
+        while (preparedData.length < 5) {
+            preparedData.push({ name: '', stars: 0 });
+        }
+
+        return preparedData;
+    },
     render: function() {
-        const data = this.props.data;
+        const data = this.prepareData(this.props.data);
         const skillSet = this.props.name;
         const color = this.colors[skillSet];
 

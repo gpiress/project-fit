@@ -74,6 +74,26 @@ var peopleData = [
             ]
         }
     },
+    {
+        name: 'Outro Praieiro',
+        match: '0.322',
+        skills: {
+            tech: [
+                { name: 'AngularJS', stars: 3 },
+                { name: 'Java', stars: 3 },
+                { name: 'JavaScript', stars: 5 }
+            ],
+            business: [
+                { name: 'Storytelling', stars: 1 },
+                { name: 'Content Strategy', stars: 3 }
+            ],
+            language: [
+                { name: 'Portuguese', stars: 5 },
+                { name: 'English', stars: 5 },
+                { name: 'Spanish', stars: 5 }
+            ]
+        }
+    }
 ];
 
 export default peopleData;

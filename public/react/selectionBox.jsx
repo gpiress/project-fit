@@ -4,13 +4,13 @@ import Skills from './data/skills_data';
 
 var Skill = React.createClass({
     getInitialState: function() {
-        return { active: false };
+        return { active: false, rating: 0 };
     },
 
     toggleActive: function() {
-        var becomingActive = !this.state.active;
-        var name = this.props.name;
-        var rating = 0;
+        const becomingActive = !this.state.active;
+        const name = this.props.name;
+        let rating = 0;
 
         if (becomingActive) {
             rating = 5;
@@ -18,11 +18,48 @@ var Skill = React.createClass({
 
         this.props.setRating(name, rating);
 
-        this.setState({ active: becomingActive });
+        this.setState({ active: becomingActive, rating: rating });
+    },
+
+    changeRating: function(event) {
+        const becomingActive = !this.state.active;
+        const name = this.props.name;
+
+        let weight = event.target.dataset.weight;
+
+        if (becomingActive && weight === this.state.rating) {
+            weight = 0;
+        }
+
+        this.props.setRating(name, weight);
+
+        this.setState({ active: becomingActive, rating: weight });
+    },
+
+    getStarsHtml: function() {
+        const rating = this.state.rating;
+        const name = this.props.name;
+
+        let starsHtml = [];
+
+        for (var i = 1; i <= 5; i++) {
+            if (i <= rating) {
+                starsHtml.push( (
+                    <i key={i} id={name + "-star-" + i} data-weight={i} className="fa fa-star" onClick={this.changeRating} />
+                ));
+            } else {
+                starsHtml.push( (
+                    <i key={i} id={name + "-star-" + i} data-weight={i} className="fa fa-star-o" onClick={this.changeRating} />
+                ));
+            }
+        }
+
+        return starsHtml;
     },
 
     render: function() {
         var name = this.props.name;
+        var starsHtml = this.getStarsHtml();
         var active = this.state.active;
 
         var activeClass = "";
@@ -31,11 +68,14 @@ var Skill = React.createClass({
         }
 
         return (
-            <a href="#"
-                className={"list-group-item" + activeClass}
-                onClick={this.toggleActive}>
-                { name }
-            </a>
+            <li className={"list-group-item skill-item" + activeClass}>
+                <div className="skill-item__name">
+                    { name }
+                </div>
+                <div className="skill-item__stars">
+                    { starsHtml }
+                </div>
+            </li>
         );
     }
 });
@@ -70,9 +110,9 @@ var SkillList = React.createClass({
                     </div>
 
                     <div className="skill-list__body">
-                        <div className="list-group">
+                        <ul className="list-group">
                             { skillsHtml }
-                        </div>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -86,19 +126,26 @@ var SelectionBox = React.createClass({
     },
     setSkill: function(skillGroup, skillName, skillRate) {
         var currentState = this.state;
-        var currentSkills = currentState[skillGroup];
 
-        if (currentSkills === undefined) {
-            currentSkills = {};
-        }
-
-        currentSkills[skillName] = skillRate;
-        currentState[skillGroup] = currentSkills;
+        currentState[skillName] = skillRate;
 
         this.setState(currentState);
     },
     search: function() {
-        this.props.search(this.state);
+        var currentState = this.state;
+        var selectedSkills = [];
+
+        for (var skill in currentState) {
+            if (currentState[skill] !== undefined && currentState[skill] > 0) {
+                var newSkill = {};
+                newSkill.name = skill;
+                newSkill.weight = currentState[skill];
+
+                selectedSkills.push(newSkill);
+            }
+        }
+
+        this.props.search(selectedSkills);
     },
 
     render: function() {

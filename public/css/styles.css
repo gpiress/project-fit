@@ -35,7 +35,6 @@
 
     text-transform: uppercase;
 
-    padding-left: 15px;
     padding-bottom: 20px;
 }
 
@@ -74,6 +73,28 @@
 .skill-list__body .list-group {
     max-height: 45vh;
     overflow-y: auto;
+}
+
+.skill-item {
+    display: flex;
+}
+
+.skill-item__name {
+
+}
+
+.skill-item__stars {
+    align-self: center;
+
+    font-size: smaller;
+
+    color: #972e8e;
+
+    padding-left: 15px;
+}
+
+.skill-item__stars i {
+    cursor: pointer;
 }
 
 /* Projects & People cards */
