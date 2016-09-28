@@ -6,8 +6,10 @@
     border-color: #8C2B84;
 }
 
+.btn-primary:visited,
 .btn-primary:hover,
-.btn-primary:focus {
+.btn-primary:focus,
+.btn-primary:active {
     background-color: #7D2676;
     border-color: #6D2267;
 }

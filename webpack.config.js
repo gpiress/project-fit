@@ -2,9 +2,12 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
-    entry: __dirname + '/public/react/main.jsx',
+    entry: {
+        app: __dirname + '/public/react/main.jsx',
+        vendor: ['react', 'react-dom', 'Recharts']
+    },
     output: {
-        filename: 'bundle.js',
+        filename: 'app.bundle.js',
         path: __dirname + '/public/build'
     },
     module: {
@@ -20,5 +23,8 @@ module.exports = {
     },
     resolve: {
         extensions: ['', '.js', '.jsx']
-    }
+    },
+    plugins: [
+        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
+    ]
 }
